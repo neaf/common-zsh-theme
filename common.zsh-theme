@@ -16,10 +16,10 @@ COMMON_COLORS_GIT_PROMPT_SHA=green
 COMMON_COLORS_BG_JOBS=yellow
 
 # Left Prompt
- PROMPT='$(common_host)$(common_current_dir)$(common_bg_jobs)$(common_return_status)'
+ PROMPT='$(common_host)$(common_current_dir)$(common_git_status)$(common_bg_jobs)$(common_return_status)'
 
 # Right Prompt
- RPROMPT='$(common_git_status)'
+ RPROMPT=''
 
 # Enable redrawing of prompt variables
  setopt promptsubst
@@ -70,7 +70,7 @@ common_git_status() {
 
     local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
     if [[ -n ${branch} ]]; then
-        message+="${message_color}${branch}%f"
+        message+="${message_color}(${branch})%f "
     fi
 
     echo -n "${message}"
