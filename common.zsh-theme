@@ -45,7 +45,7 @@ common_host() {
 
 # Current directory
 common_current_dir() {
-  echo -n "%{$fg[$COMMON_COLORS_CURRENT_DIR]%}%c "
+  echo -n "%{$fg[$COMMON_COLORS_CURRENT_DIR]%}%~ "
 }
 
 # Prompt symbol
